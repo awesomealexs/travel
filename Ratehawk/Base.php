@@ -3,7 +3,7 @@
 namespace Ratehawk;
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-use Dotenv\Dotenv;
+use Symfony\Component\Dotenv\Dotenv;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Logger;
 use Ratehawk\Api\Client;
@@ -24,8 +24,8 @@ class Base
 
     public function __construct()
     {
-        $dotenv = Dotenv::createImmutable(dirname(static::BASE_DIR));
-        $dotenv->load();
+        $dotenv = new Dotenv();
+        $dotenv->load(dirname(__DIR__).'/.env');
         $logDir = static::BASE_DIR . '/Logs/ApiLog.log';
         $handler = new RotatingFileHandler($logDir);
 
@@ -39,6 +39,7 @@ class Base
 
             )
         );
+
 
     }
 
@@ -59,6 +60,12 @@ class Base
         }
     }
 
+    public function test(){
+        $r = $this->rateHawkApi->overview();
+
+        var_dump($r);
+    }
+
     public function handleHotelsDumpFile()
     {
         ini_set('memory_limit', '3G');
@@ -70,3 +77,4 @@ class Base
 $b = new Base();
 //$b->getHotelsDumpFile();
 $b->handleHotelsDumpFile();
+//$b->test();

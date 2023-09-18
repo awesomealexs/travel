@@ -3,7 +3,8 @@
         "emerging-travel/papi-sdk-php": "^0.0.4",
         "psr/log": "^3.0",
         "monolog/monolog": "^3.4",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+        "symfony/dotenv": "^6.3"
     },
     "autoload": {
         "psr-4": {

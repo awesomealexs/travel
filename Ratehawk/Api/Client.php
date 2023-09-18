@@ -46,7 +46,6 @@ class Client
         $this->logger = new Logger('', [], [], new \DateTimeZone('Europe/Moscow'));
         $this->logger->pushHandler($handler);
 
-
         $config = Client::_add_auth($config, $key);
         $config = Client::_add_user_agent($config);
         $this->httpClient = new HttpClient($config);

@@ -3,4 +3,5 @@ Ratehawk/Storage
 Ratehawk/Zstd
 vendor
 
+.idea
 .env
